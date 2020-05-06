@@ -1,13 +1,10 @@
 <?php
 session_start();
 
-$users = [['Hannes', 'Illy', 'HAI', 'huhu'],
-          ['ASDF', 'QWER', 'ICH', 'Passwort']];
+$users = file('../users.txt');
 
-if (isset($_POST['username'])) {
+if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
-}
-if (isset($_POST['username'])) {
     $password = $_POST['password'];
 }
 
@@ -16,8 +13,9 @@ $seite = '../html/login_form.html';
 
 $length = count($users);
 for ($i = 0; $i < $length; $i++) {
-    if ($users[$i][2] == $username) {
-        if ($users[$i][3] == $password) {
+    $currentUser = explode(',', $users[$i]);
+    if ($currentUser[2] == $username) {
+        if ($currentUser[3] == $password) {
             $_SESSION['login'] = 'ok';
             $seite = '../php/hauptseite.php';
         }
