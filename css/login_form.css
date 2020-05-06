@@ -1,0 +1,29 @@
+form {
+    width: 50%;
+    min-width: 550px;
+    margin-left: 25%;
+    margin-right: 25%;
+    border: 3px solid #245f8b;
+}
+
+#title {
+    padding: 5px;
+    background-color: #0f92bd;
+    margin-bottom: 10px;
+}
+
+#content {
+    padding: 10px;
+    text-align: right;
+    background-color: #d9d9d9;
+}
+
+.input {
+    margin: 5px;
+    width: 33%;
+    background-color: #acacac;
+}
+
+.icon {
+    width: 40px;
+}
