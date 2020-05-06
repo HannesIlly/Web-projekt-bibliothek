@@ -2,7 +2,8 @@
 /**
  * @param string $path The path of the directory that is read.
  */
-function readFiles($path) {
+function readFiles($path)
+{
     $iterator = new DirectoryIterator($path);
     $directoryContent = [];
 
@@ -26,7 +27,7 @@ function readFiles($path) {
     echo '<tr>';
     $length = count($directoryContent);
     for ($i = 0; $i < $length; $i++) {
-        echo '<th>'. $directoryContent[$i][0] . '</th>';
+        echo '<th>' . $directoryContent[$i][0] . '</th>';
     }
     echo '</tr>';
     // print column contents
@@ -42,8 +43,29 @@ function readFiles($path) {
     }
     echo '</tr>';
     echo '</table>';
+
+    // add option for admins to add files
+    if ($_SESSION['role'] == 'admin') {
+        echo '<form class="upload" action="php/upload.php" method="POST" enctype="multipart/form-data" ><fieldset><legend>Unterlagen hochladen</legend>';
+        echo '<label for="category">Kategorie:</label>';
+        echo '<select id="category" name="category">';
+        for ($i = 0; $i < $length; $i++) {
+            $directoryName = $directoryContent[$i][0];
+            echo '<option value="' . $directoryName . '">';
+            echo $directoryName;
+            echo '</option>';
+        }
+        echo '</select>';
+        echo '<label for="file-upload">Dateien hinzufügen:</label>';
+        echo '<input id="file-upload" name="file" type="file" />';
+        echo '</fieldset>';
+        echo '<input type="submit" value="Hochladen" />';
+        echo '</form>';
+    }
+
 }
+
 ?>
 
-<h1>Unterlagen</h1>
+    <h1>Unterlagen</h1>
 <?php readFiles('unterrichtsunterlagen/skripte'); ?>

@@ -13,7 +13,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $database = new PDO('mysql:host=localhost; dbname=bibliothek', 'root', '');
 
     // Get user login data
-    $statement = 'SELECT UID, user_pass FROM logindaten WHERE user_name = "' . $username . '";';
+    $statement = 'SELECT UID, user_pass, role FROM logindaten WHERE user_name = "' . $username . '";';
     echo $statement;
     $query = $database->query($statement);
     $loginDaten = $query->fetchAll();
@@ -28,6 +28,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             $_SESSION['login'] = 'ok';
             $_SESSION['username'] = $username;
             $_SESSION['first-name'] = $userDaten[0]['vorname'];
+            $_SESSION['role'] = $loginDaten[0]['role'];
             $seite = '../hauptseite.php';
         } else {
             $seite = '../html/login_form.html';
