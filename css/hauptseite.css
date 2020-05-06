@@ -1,7 +1,21 @@
+/* style reset */
+* {
+    margin: 0;
+    padding: 0;
+}
 html, body {
     width: 99%;
     height: 99%;
     font-family: 'Ubuntu', 'Helvetica', 'sans-serif';
+}
+
+/* style */
+h1 {
+    margin: 10px;
+}
+
+body {
+    padding: 10px;
 }
 
 #header {
@@ -13,9 +27,12 @@ html, body {
 }
 
 #nav {
-    padding: 10px;
-    height: 50px;
+    margin: 25px;
     text-align: center;
+}
+
+#nav ul {
+
 }
 
 #nav a {
@@ -41,3 +58,37 @@ html, body {
     padding: 10px;
 }
 
+.leseproben {
+    list-style-image: url("../bilder/links_icons.jpg");
+    font-size: 12pt;
+}
+
+table {
+    color: white;
+}
+
+th {
+    background-color: #245f8b;
+    padding: 5px;
+    margin: 3px;
+}
+
+td {
+    background-color: #c4e8fd;
+    vertical-align: top;
+    padding: 5px;
+    margin: 3px;
+}
+
+table a {
+    display: block;
+    padding: 5px;
+    margin: 3px;
+    color: white;
+    text-decoration: none;
+}
+
+table a:nth-child(odd) { background-color: #009dc1
+}
+table a:nth-child(even) { background-color: #0f72bd
+}

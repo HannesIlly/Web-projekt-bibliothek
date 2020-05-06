@@ -1,15 +1,7 @@
-/*style reset*/
-* {
-    margin: 0;
-    padding: 0;
-}
-
-
-
 .accordion_content {
     padding: 10px;
-    background-color: #b0ddf6;
-    height: 350px;
+    background-color: #c4e8fd;
+    height: 300px;
     width: 810px;
     overflow: hidden;
     zoom: 1;
@@ -22,7 +14,7 @@
 }
 
 .same_open {
-    height: 300px;
+    height: 250px;
     width: 30px;
     cursor: pointer;
     text-align:center;
@@ -31,10 +23,10 @@
     margin: 0 5px;
 }
 
-.same_open h1 {
+.same_open span {
     text-align: center;
     font-weight: normal;
-    font-size: larger;
+    font-size: 16pt;
 
     writing-mode: vertical-lr;
     text-orientation: sideways;
@@ -43,7 +35,7 @@
 
 .same_open_content {
     width: 0;
-    height: 350px;
+    height: 300px;
 }
 
 .open_content { width: 650px; }
@@ -67,9 +59,4 @@
     font-size: 12pt;
     line-height: 20px;
     color: #666666;
-}
-
-.leseproben {
-    list-style-image: url("../bilder/links_icons.jpg");
-    font-size: 12pt;
 }

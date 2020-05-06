@@ -45,9 +45,10 @@ function showFileList($directory, $classes='leseproben')
 
 ?>
 
+<h1>Fachbücher</h1>
 <div class="accordion_content">
     <div class="same_open same_offset" data="tab-1">
-        <h1>WCP</h1>
+        <span>WCP</span>
     </div>
     <div id="tab-1" class="same_open_content same_offset open_content">
         <img src="../bilder/acc_html.jpg" alt="Bild HTML"/>
@@ -58,7 +59,7 @@ function showFileList($directory, $classes='leseproben')
     </div>
 
     <div class="same_open same_offset" data="tab-2">
-        <h1>WSP</h1>
+        <span>WSP</span>
     </div>
     <div id="tab-2" class="same_open_content same_offset">
         <img src="../bilder/acc_php.jpg" alt="Bild PHP"/>
@@ -69,7 +70,7 @@ function showFileList($directory, $classes='leseproben')
     </div>
 
     <div class="same_open same_offset" data="tab-3">
-        <h1>JAVA</h1>
+        <span>JAVA</span>
     </div>
     <div id="tab-3" class="same_open_content same_offset">
         <img src="../bilder/acc_java.jpg" alt="Bild Java"/>
@@ -80,7 +81,7 @@ function showFileList($directory, $classes='leseproben')
     </div>
 
     <div class="same_open same_offset" data="tab-4">
-        <h1>SWT</h1>
+        <span>SWT</span>
     </div>
     <div id="tab-4" class="same_open_content same_offset">
         <img src="../bilder/acc_swt.jpg" alt="Bild SWT">
