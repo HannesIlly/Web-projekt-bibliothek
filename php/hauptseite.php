@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['login']) && $_SESSION['login'] == 'ok') {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,3 +44,9 @@
 </div>
 </body>
 </html>
+<?php
+} else {
+    $seite = '../html/login_form.html';
+    header('Location: ' . $seite);
+}
+?>

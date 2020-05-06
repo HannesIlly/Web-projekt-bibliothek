@@ -7,13 +7,13 @@
 </head>
 <body>
 <div id="frame">
-    <form action="../php/user_login.php">
+    <form action="../php/user_login.php" method="POST">
         <div id="title">User-Login</div>
         <div id="content">
             <img class="icon" src="../bilder/login_icon_user.png" alt="User">
-            <input id="username" class="input" type="text" placeholder="Username"/>
+            <input id="username" name="username" class="input" type="text" placeholder="Username"/>
             <img class="icon" src="../bilder/login_icon_pass.png" alt="Passwort">
-            <input id="password" class="input" type="password" placeholder="Passwort"/>
+            <input id="password" name="password" class="input" type="password" placeholder="Passwort"/>
             <input id="submit" class="icon" type="image" alt="Einloggen" src="../bilder/login_icon_haken.png"/>
             <a href="user_register_form.html">Registrieren</a>
         </div>
