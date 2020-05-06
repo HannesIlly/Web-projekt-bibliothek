@@ -1,0 +1,48 @@
+html, body {
+    width: 99%;
+    height: 99%;
+    font-family: 'Ubuntu', 'Helvetica', 'sans-serif';
+}
+
+div {
+    padding: 10px;
+}
+
+#header {
+    width: 100%;
+    height: 150px;
+    background-image: url("../bilder/header_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#nav {
+    height: 100px;
+    text-align: center;
+}
+
+#nav > ul {
+    list-style-type: none;
+}
+
+#nav li {
+    display: inline;
+    padding: 10px;
+    letter-spacing: 0.5em;
+    transition: 0.25s;
+}
+
+#nav li:hover {
+    background-color: #0f92bd;
+    transition: 0.5s;
+}
+
+#content {
+    height: 60%;
+    overflow: scroll;
+}
+
+.content-frame {
+    border: 3px solid #245f8b;
+    border-radius: 10px;
+}
