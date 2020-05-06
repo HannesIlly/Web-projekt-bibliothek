@@ -6,7 +6,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == 'ok') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/hauptseite.css">
+    <link rel="stylesheet" href="css/hauptseite.css">
     <title>Bibliothek</title>
 </head>
 <body>
@@ -18,6 +18,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == 'ok') {
         <a href="?seite=fachbuecher">Fachbücher</a>
         <a href="?seite=unterlagen">Skripte</a>
         <a href="?seite=aufgaben">Übungsaufgaben</a>
+        <a href="?seite=logout">Logout</a>
     </ul>
 </div>
 <div id="content" class="content-frame">
@@ -33,6 +34,10 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == 'ok') {
                     break;
                 case 'aufgaben':
                     include 'aufgaben.php';
+                    break;
+                case 'logout':
+                    session_destroy();
+                    include '../html/login_form.html';
                     break;
                 default:
                     include 'wilkommen.php';
