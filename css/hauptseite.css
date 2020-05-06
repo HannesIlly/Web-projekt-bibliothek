@@ -92,3 +92,35 @@ table a:nth-child(odd) { background-color: #009dc1
 }
 table a:nth-child(even) { background-color: #0f72bd
 }
+
+#aufgaben {
+    background-color: #c4e8fd;
+    padding: 10px;
+}
+
+#aufgaben a {
+    display: block;
+    margin: 3px 0;
+}
+
+#aufgaben .details-content {
+    padding: 5px 20px;
+}
+
+#aufgaben details {
+    padding: 10px;
+}
+#aufgaben details[open] {
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-y: top;
+    background-color: white;
+    border: 2px solid #245f8b;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+#aufgaben .img-java[open] { background-image: url("../bilder/acc_java.jpg");}
+#aufgaben .img-wcp[open] { background-image: url("../bilder/acc_html.jpg");}
+#aufgaben .img-wsp[open] { background-image: url("../bilder/acc_php.jpg");}
+#aufgaben .img-swt[open] { background-image: url("../bilder/acc_swt.jpg");}
