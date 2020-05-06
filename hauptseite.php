@@ -18,7 +18,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == 'ok') {
         <a href="?seite=fachbuecher">Fachbücher</a>
         <a href="?seite=unterlagen">Skripte</a>
         <a href="?seite=aufgaben">Übungsaufgaben</a>
-        <a href="?seite=logout">Logout</a>
+        <a href="php/logout.php">Logout</a>
     </ul>
 </div>
 <div id="content" class="content-frame">
@@ -27,23 +27,19 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == 'ok') {
             $seite = $_GET['seite'];
             switch ($seite) {
                 case 'fachbuecher':
-                    include 'fachbuecher.php';
+                    include 'php/fachbuecher.php';
                     break;
                 case 'unterlagen':
-                    include 'unterlagen.php';
+                    include 'php/unterlagen.php';
                     break;
                 case 'aufgaben':
-                    include 'aufgaben.php';
-                    break;
-                case 'logout':
-                    session_destroy();
-                    include '../html/login_form.html';
+                    include 'php/aufgaben.php';
                     break;
                 default:
-                    include 'wilkommen.php';
+                    include 'php/wilkommen.php';
             }
         } else {
-            include 'wilkommen.php';
+            include 'php/wilkommen.php';
         }
     ?>
 </div>
@@ -51,7 +47,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == 'ok') {
 </html>
 <?php
 } else {
-    $seite = '../html/login_form.html';
+    $seite = 'html/login_form.html';
     header('Location: ' . $seite);
 }
 ?>

@@ -2,9 +2,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>jQuery accordionToggle Plugin Demo</title>
-<link rel="stylesheet" href="../css/fachbuecher.css">
+<link rel="stylesheet" href="css/fachbuecher.css">
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="../js/jquery.accordion.js"></script>
+<script type="text/javascript" src="js/jquery.accordion.js"></script>
 <script type="text/javascript">
     $(function () {
         $('.tab_container').accordion({
@@ -28,7 +28,7 @@
  */
 function showFileList($directory, $classes='leseproben')
 {
-    $iterator = new DirectoryIterator('../leseproben/' . $directory);
+    $iterator = new DirectoryIterator('leseproben/' . $directory);
     $isEmpty = true;
 
     echo '<ul class="' . $classes . '">';
@@ -51,7 +51,7 @@ function showFileList($directory, $classes='leseproben')
         <span>WCP</span>
     </div>
     <div id="tab-1" class="same_open_content same_offset open_content">
-        <img src="../bilder/acc_html.jpg" alt="Bild HTML"/>
+        <img src="bilder/acc_html.jpg" alt="Bild HTML"/>
         <div class="open_article">
             <h1>Web Client Programmierung</h1>
             <?php showFileList('wcp_proben'); ?>
@@ -62,7 +62,7 @@ function showFileList($directory, $classes='leseproben')
         <span>WSP</span>
     </div>
     <div id="tab-2" class="same_open_content same_offset">
-        <img src="../bilder/acc_php.jpg" alt="Bild PHP"/>
+        <img src="bilder/acc_php.jpg" alt="Bild PHP"/>
         <div class="open_article">
             <h1>Web Server Programmierung</h1>
             <?php showFileList('php_proben'); ?>
@@ -73,7 +73,7 @@ function showFileList($directory, $classes='leseproben')
         <span>JAVA</span>
     </div>
     <div id="tab-3" class="same_open_content same_offset">
-        <img src="../bilder/acc_java.jpg" alt="Bild Java"/>
+        <img src="bilder/acc_java.jpg" alt="Bild Java"/>
         <div class="open_article">
             <h1>Java</h1>
             <?php showFileList('java_proben'); ?>
@@ -84,7 +84,7 @@ function showFileList($directory, $classes='leseproben')
         <span>SWT</span>
     </div>
     <div id="tab-4" class="same_open_content same_offset">
-        <img src="../bilder/acc_swt.jpg" alt="Bild SWT">
+        <img src="bilder/acc_swt.jpg" alt="Bild SWT">
         <div class="open_article">
             <h1>Softwaretechnik</h1>
             <?php showFileList('swt_proben'); ?>

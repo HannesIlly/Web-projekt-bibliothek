@@ -28,7 +28,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             $_SESSION['login'] = 'ok';
             $_SESSION['username'] = $username;
             $_SESSION['first-name'] = $userDaten[0]['vorname'];
-            $seite = '../php/hauptseite.php';
+            $seite = '../hauptseite.php';
         } else {
             $seite = '../html/login_form.html';
         }

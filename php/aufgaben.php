@@ -20,5 +20,5 @@ function readFiles($path) {
 
 <h1>Aufgaben</h1>
 <div id="aufgaben">
-    <?php readFiles('../unterrichtsunterlagen/aufgaben') ?>
+    <?php readFiles('unterrichtsunterlagen/aufgaben') ?>
 </div>

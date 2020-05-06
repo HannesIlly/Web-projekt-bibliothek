@@ -46,4 +46,4 @@ function readFiles($path) {
 ?>
 
 <h1>Unterlagen</h1>
-<?php readFiles('../unterrichtsunterlagen/skripte'); ?>
+<?php readFiles('unterrichtsunterlagen/skripte'); ?>
