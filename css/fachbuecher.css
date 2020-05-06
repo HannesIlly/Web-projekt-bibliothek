@@ -26,7 +26,7 @@
     width: 30px;
     cursor: pointer;
     text-align:center;
-    font-size: 16px;
+    font-size: 14pt;
     padding-top: 50px;
     margin: 0 5px;
 }
@@ -57,13 +57,19 @@
 .open_article { margin: 10px 20px 10px 140px; }
 
 .open_article h1 {
-    font-size: 14px;
+    margin: 10px 0px;
+    font-size: 16pt;
     font-weight: normal;
     color: #444444;
 }
 
 .open_article p {
-    font-size: 12px;
+    font-size: 12pt;
     line-height: 20px;
     color: #666666;
+}
+
+.leseproben {
+    list-style-image: url("../bilder/links_icons.jpg");
+    font-size: 12pt;
 }

@@ -20,6 +20,31 @@
     });
 </script>
 
+<?php
+/**
+ * This function reads the contents of the given subdirectory in 'leseproben'. The contents are displayed as an unsorted list.
+ * @param string $directory The directory of which the files are read.
+ * @param string $classes The classes that will be assigned to the list.
+ */
+function showFileList($directory, $classes='leseproben')
+{
+    $iterator = new DirectoryIterator('../leseproben/' . $directory);
+    $isEmpty = true;
+
+    echo '<ul class="' . $classes . '">';
+    foreach ($iterator as $fileInfo) {
+        if ($fileInfo->isDot()) continue;
+        $isEmpty = false;
+        echo '<li><a href="' . $fileInfo->getPathname() . '">' . $fileInfo->getFilename() . '</a></li>';
+    }
+    echo '</ul>';
+    if ($isEmpty) {
+        echo '<p>Es wurden keine Leseproben gefunden! :/</p>';
+    }
+}
+
+?>
+
 <div class="accordion_content">
     <div class="same_open same_offset" data="tab-1">
         <h1>WCP</h1>
@@ -28,7 +53,7 @@
         <img src="../bilder/acc_html.jpg" alt="Bild HTML"/>
         <div class="open_article">
             <h1>Web Client Programmierung</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <?php showFileList('wcp_proben'); ?>
         </div>
     </div>
 
@@ -39,7 +64,7 @@
         <img src="../bilder/acc_php.jpg" alt="Bild PHP"/>
         <div class="open_article">
             <h1>Web Server Programmierung</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <?php showFileList('php_proben'); ?>
         </div>
     </div>
 
@@ -50,7 +75,7 @@
         <img src="../bilder/acc_java.jpg" alt="Bild Java"/>
         <div class="open_article">
             <h1>Java</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <?php showFileList('java_proben'); ?>
         </div>
     </div>
 
@@ -61,6 +86,6 @@
         <img src="../bilder/acc_swt.jpg" alt="Bild SWT">
         <div class="open_article">
             <h1>Softwaretechnik</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <?php showFileList('swt_proben'); ?>
         </div>
     </div>
