@@ -20,8 +20,8 @@ if (isset($_POST['first-name']) && isset($_POST['last-name']) && isset($_POST['u
 
     if (count($result) == 0) {
         // insert user data
-        $loginData = ['name' => $username, 'pass' => $password];
-        $statement = 'INSERT INTO logindaten(user_name, user_pass) VALUES (:name, :pass);';
+        $loginData = ['name' => $username, 'pass' => $password, 'role' => 'user'];
+        $statement = 'INSERT INTO logindaten(user_name, user_pass, role) VALUES (:name, :pass, :role);';
         $query = $database->prepare($statement);
         $query->execute($loginData);
         // id of the dataset that was inserted last
