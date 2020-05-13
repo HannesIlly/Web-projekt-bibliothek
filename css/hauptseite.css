@@ -88,10 +88,32 @@ table a {
     text-decoration: none;
 }
 
-table a:nth-child(odd) { background-color: #009dc1
+.upload input, .upload select{
+    display: block;
+    margin: 10px;
 }
-table a:nth-child(even) { background-color: #0f72bd
+
+.upload fieldset {
+    border: 1px solid #245f8b;
+    border-radius: 5px;
+    padding: 10px;
 }
+
+.upload {
+    width: 400px;
+    padding: 10px;
+    margin-top: 20px;
+    border: 3px solid #245f8b;
+    border-radius: 5px;
+}
+
+.upload legend {
+    font-size: 14pt;
+    padding: 5px;
+}
+
+table a:nth-child(odd) { background-color: #009dc1;}
+table a:nth-child(even) { background-color: #0f72bd;}
 
 #aufgaben {
     background-color: #c4e8fd;

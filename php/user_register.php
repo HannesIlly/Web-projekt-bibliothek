@@ -10,7 +10,6 @@ if (isset($_POST['first-name']) && isset($_POST['last-name']) && isset($_POST['u
     $username = htmlspecialchars($_POST['username']);
     $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
 
-
     // Create connection to the database
     $database = new PDO('mysql:host=localhost; dbname=bibliothek', 'root', '');
 
