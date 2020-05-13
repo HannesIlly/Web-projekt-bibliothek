@@ -14,11 +14,14 @@ function processFileUpload($name, $targetDirectory, $maxFileSize=10000000) {
     return false;
 }
 
-if (isset($_POST['category'])) {
-    $category = $_POST['category'];
+
+
+if (isset($_POST['main-category']) && isset($_POST['sub-category'])) {
+    $subCategory = $_POST['sub-category'];
+    $mainCategory = $_POST['main-category'];
     $file = $_FILES['file'];
 
-    $directory = '../unterrichtsunterlagen/skripte/' . $category;
+    $directory = '../unterrichtsunterlagen/' . $mainCategory . '/' . $subCategory;
 
     if (processFileUpload('file', $directory)) {
         // go back to page 'unterlagen'

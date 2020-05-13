@@ -2,70 +2,85 @@
 /**
  * @param string $path The path of the directory that is read.
  */
-function readFiles($path)
-{
+function readFiles($path) {
     $iterator = new DirectoryIterator($path);
-    $directoryContent = [];
+
+    $categories = [];
+    $fileNames = [];
+    $filePaths = [];
 
     // iterate each directory
     foreach ($iterator as $fileInfo) {
         if ($fileInfo->isDot()) continue;
         if ($fileInfo->isDir()) {
+            $categories[] = $fileInfo->getFilename();
+            $currentFolder = [[], []]; // filenames, pathname of files
+
             // iterate each file
-            $currentFolder = [$fileInfo->getFilename(), [], []]; // dirname, filenames, pathname of files
             foreach (new DirectoryIterator($fileInfo->getPathname()) as $file) {
                 if ($file->isDot()) continue;
-                $currentFolder[1][] = $file->getFilename();
-                $currentFolder[2][] = $file->getPathname();
+                $currentFolder[0][] = $file->getFilename();
+                $currentFolder[1][] = $file->getPathname();
             }
-            $directoryContent[] = $currentFolder;
+            $fileNames[] = $currentFolder[0];
+            $filePaths[] = $currentFolder[1];
         }
     }
 
+    // display table with files
+    fileTable($categories, $fileNames, $filePaths);
+
+    // add option for admins to add files
+    if ($_SESSION['role'] == 'admin') {
+        fileUploader('Unterlagen', 'skripte', $categories);
+    }
+}
+
+function fileTable($categories, $fileNames, $filePaths) {
     echo '<table>';
     // print column titles
     echo '<tr>';
-    $length = count($directoryContent);
+    $length = count($categories);
     for ($i = 0; $i < $length; $i++) {
-        echo '<th>' . $directoryContent[$i][0] . '</th>';
+        echo '<th>' . $categories[$i] . '</th>';
     }
     echo '</tr>';
     // print column contents
     echo '<tr>';
-    $length = count($directoryContent);
     for ($i = 0; $i < $length; $i++) {
         echo '<td>';
-        $count = count($directoryContent[$i][1]);
+        $count = count($fileNames[$i]);
         for ($j = 0; $j < $count; $j++) {
-            echo '<a href="' . $directoryContent[$i][2][$j] . '">' . $directoryContent[$i][1][$j] . '</a>';
+            echo '<a href="' . $filePaths[$i][$j] . '">' . $fileNames[$i][$j] . '</a>';
         }
         echo '</td>';
     }
     echo '</tr>';
     echo '</table>';
+}
 
-    // add option for admins to add files
-    if ($_SESSION['role'] == 'admin') {
-        echo '<form class="upload" action="php/upload.php" method="POST" enctype="multipart/form-data" ><fieldset><legend>Unterlagen hochladen</legend>';
-        echo '<label for="category">Kategorie:</label>';
-        echo '<select id="category" name="category">';
-        for ($i = 0; $i < $length; $i++) {
-            $directoryName = $directoryContent[$i][0];
-            echo '<option value="' . $directoryName . '">';
-            echo $directoryName;
-            echo '</option>';
-        }
-        echo '</select>';
-        echo '<label for="file-upload">Dateien hinzufügen:</label>';
-        echo '<input id="file-upload" name="file" type="file" />';
-        echo '</fieldset>';
-        echo '<input type="submit" value="Hochladen" />';
-        echo '</form>';
+function fileUploader($name, $mainCategory, $categories) {
+    echo '<form class="upload" action="php/upload.php" method="POST" enctype="multipart/form-data" ><fieldset><legend>' . $name . ' hochladen</legend>';
+    echo '<label for="category">Kategorie:</label>';
+    echo '<select id="category" name="sub-category">';
+    $length = count($categories);
+    for ($i = 0; $i < $length; $i++) {
+        $directoryName = $categories[$i];
+        echo '<option value="' . $directoryName . '">';
+        echo $directoryName;
+        echo '</option>';
     }
-
+    echo '</select>';
+    // define the directory of the categories here
+    echo '<input type="hidden" name="main-category" value="' . $mainCategory . '" />';
+    echo '<label for="file-upload">Dateien hinzufügen:</label>';
+    echo '<input id="file-upload" name="file" type="file" />';
+    echo '</fieldset>';
+    echo '<input type="submit" value="Hochladen" />';
+    echo '</form>';
 }
 
 ?>
 
-    <h1>Unterlagen</h1>
+<h1>Unterlagen</h1>
 <?php readFiles('unterrichtsunterlagen/skripte'); ?>
