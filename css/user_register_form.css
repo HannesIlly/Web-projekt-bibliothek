@@ -33,3 +33,11 @@ form {
 .icon {
     width: 40px;
 }
+
+.error {
+    padding: 0;
+    margin: 5px;
+    color: #8b0000;
+    text-align: center;
+    background-color: #c28f8f;
+}

@@ -1,3 +1,15 @@
+<?php session_start();
+
+function errorMessageUsername() {
+    if (isset($_SESSION['errorUsernameExists'])) {
+        echo $_SESSION['errorUsernameExists'];
+
+        // session-variable löschen
+        unset($_SESSION['errorUsernameExists']);
+    }
+    return;
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +19,10 @@
 <body>
 </body>
 <div id="frame">
-    <form action="../php/user_register.php" method="POST">
+    <form action="user_register.php" method="POST">
         <div id="title">User-Registrierung</div>
         <div id="content">
+            <p class="error"><?php errorMessageUsername(); ?></p>
             <div><label for="first-name">Vorname</label><input class="input" id="first-name" name="first-name" type="text"/></div>
             <div><label for="last-name">Nachname</label><input class="input" id="last-name" name="last-name" type="text"/></div>
             <div><label for="username">Username</label><input class="input" id="username" name="username" type="text"/></div>
