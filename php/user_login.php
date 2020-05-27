@@ -1,4 +1,6 @@
 <?php
+include 'database.php';
+
 session_start();
 
 $_SESSION['login'] = 'verweigert';
@@ -8,9 +10,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     // secure login-form data
     $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);
-
-    // Create connection to the database
-    $database = new PDO('mysql:host=localhost; dbname=bibliothek', 'root', '');
 
     // Get user login data
     $statement = 'SELECT UID, user_pass, role, user_fehlversuche FROM logindaten WHERE user_name = "' . $username . '";';
@@ -48,7 +47,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             $query->execute($parameters);
         } else {
             // username not found
-            $seite = '../html/user_register_form.html';
+            $seite = 'user_register_form.php';
         }
     } else {
 

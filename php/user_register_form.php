@@ -23,11 +23,12 @@ function errorMessageUsername() {
         <div id="title">User-Registrierung</div>
         <div id="content">
             <p class="error"><?php errorMessageUsername(); ?></p>
-            <div><label for="first-name">Vorname</label><input class="input" id="first-name" name="first-name" type="text"/></div>
-            <div><label for="last-name">Nachname</label><input class="input" id="last-name" name="last-name" type="text"/></div>
-            <div><label for="username">Username</label><input class="input" id="username" name="username" type="text"/></div>
-            <div><label for="password">Password</label><input class="input" id="password" name="password" type="password"/></div>
-            <input id="submit" class="icon" type="image" src="../bilder/login_icon_haken.png" alt="Registrieren"/>
+            <div><label for="first-name">Vorname</label><input class="input" id="first-name" name="first-name" type="text" required /></div>
+            <div><label for="last-name">Nachname</label><input class="input" id="last-name" name="last-name" type="text" required /></div>
+            <div><label for="username">Username</label><input class="input" id="username" name="username" type="text" required /></div>
+            <div><label for="password">Password</label><input class="input" id="password" name="password" type="password" required
+                pattern="{8, 18}" title="Bitte 8-18 Zeichen sowie Großbuchstaben, Kleinbuchstaben und Zahlen eingeben!" /></div>
+            <input id="submit" class="icon" type="image" src="../bilder/login_icon_haken.png" alt="Registrieren" />
         </div>
     </form>
 </div>
